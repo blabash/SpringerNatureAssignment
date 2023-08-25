@@ -6,16 +6,16 @@ export const SignUpForm = (props: Props) => {
   const handleSubmit = () => {};
 
   return (
-    <main>
-      <h1>Sign Up Form</h1>
+    <main className="main-container">
+      <h1>Sign up form</h1>
       <p>All fields are required.</p>
-      <form onSubmit={handleSubmit}>
+      <form className="form-container" onSubmit={handleSubmit}>
         <label htmlFor="first-name">First Name</label>
         <input
           type="text"
           name="name"
           id="first-name"
-          placeholder="ex. Jane"
+          placeholder="ex: Jane"
           required
         />
         <label htmlFor="last-name">Last Name</label>
@@ -23,7 +23,7 @@ export const SignUpForm = (props: Props) => {
           type="text"
           name="name"
           id="last-name"
-          placeholder="ex. Doe"
+          placeholder="ex: Doe"
           required
         />
         <label htmlFor="email">Email</label>
@@ -31,30 +31,34 @@ export const SignUpForm = (props: Props) => {
           type="email"
           name="email"
           id="email"
+          placeholder="ex: jane.doe@gmail.com"
           pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
           required
         />
         <label htmlFor="password">Password</label>
-        <div>
-          <input type="password" name="password" id="password" required />
-          <ul>
-            <li>Minimum 12 characters</li>
-            <li>
-              Must contain at least 2 upper case letters, 2 numbers, and 2
-              symbols
-            </li>
-          </ul>
-        </div>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          pattern=""
+          required
+        />
+        <ul className="form__password-reqs">
+          <li>Minimum 12 characters</li>
+          <li>
+            Must contain at least 2 upper case letters, 2 numbers, and 2 symbols
+          </li>
+        </ul>
         <label htmlFor="confirm-password">Confirm Password</label>
         <input type="password" name="password" id="confirm-password" required />
         <label htmlFor="terms-conditions">Terms and conditions</label>
-        <input
-          type="checkbox"
-          name="terms-conditions"
-          id="terms-conditions"
-          required
-        />
         <label htmlFor="terms-conditions">
+          <input
+            type="checkbox"
+            name="terms-conditions"
+            id="terms-conditions"
+            required
+          />{" "}
           I agree to the terms and conditions
         </label>
         <button type="submit">Sign Up</button>

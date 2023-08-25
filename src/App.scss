@@ -7,6 +7,12 @@
   box-sizing: border-box;
 }
 
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
 /* For images to not be able to exceed their container */
 img {
   max-width: 100%;
@@ -15,13 +21,18 @@ img {
 /* ========== Root Styling / Variables ========== */
 
 :root {
+  --color-primary: rgba(255, 255, 255, 0.87);
+
+  --padding-1x: 1em;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: var(--color-primary);
   background-color: #242424;
+
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -41,12 +52,33 @@ img {
   place-items: center;
 }
 
+.main-container {
+  display: grid;
+  grid-auto-flow: row;
+  width: min(45ch, 100% - 2rem);
+  padding: var(--padding-1x);
+  border: 1px solid var(--color-primary);
+}
+
+.form-container {
+  display: grid;
+  grid-auto-flow: row;
+  gap: var(--padding-1x);
+}
 
 /* ========== Elements ========== */
+
+h1 {
+  border-bottom: 1px solid var(--color-primary);
+}
+
 
 
 /* ========== Components ========== */
 
+.form__password-reqs {
+  margin-left: var(--padding-1x)
+}
 
 /* ========== Media Queries ========== */
 
