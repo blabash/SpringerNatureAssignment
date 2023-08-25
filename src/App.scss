@@ -7,6 +7,16 @@
   box-sizing: border-box;
 }
 
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+button {
+  border-style: none;
+}
+
 ul,
 ol {
   margin: 0;
@@ -22,12 +32,19 @@ img {
 
 :root {
   --color-primary: rgba(255, 255, 255, 0.87);
+  --color-secondary: oklch(62% 0.3 240); // newer unit that allows for increased contrast against font colors
+  --color-placeholder: rgba(255, 255, 255, 0.57);
 
-  --padding-1x: 1em;
+  --spacing-quarter: .25em;
+  --spacing-half: .5em;
+  --spacing-1: 1em;
+
+  --font-size-large: 112.5%; // 18px
+  --font-size-small: 87.5%; // 14px
+  --font-weight-heavy: 700;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
 
   color-scheme: light dark;
   color: var(--color-primary);
@@ -41,6 +58,20 @@ img {
   -webkit-text-size-adjust: 100%;
 }
 
+/* ========== Utility ========== */
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-half);
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-quarter);
+}
+
 /* ========== Typography ========== */
 
 
@@ -52,32 +83,64 @@ img {
   place-items: center;
 }
 
-.main-container {
-  display: grid;
-  grid-auto-flow: row;
-  width: min(45ch, 100% - 2rem);
-  padding: var(--padding-1x);
-  border: 1px solid var(--color-primary);
-}
-
 .form-container {
   display: grid;
   grid-auto-flow: row;
-  gap: var(--padding-1x);
+  gap: var(--spacing-1);
+  width: min(32ch, 100% - 2rem);
+  padding: var(--spacing-1);
+  border: 1px solid var(--color-primary);
+}
+
+.inputs-container {
+  display: grid;
+  grid-auto-flow: row;
+  gap: var(--spacing-1);
 }
 
 /* ========== Elements ========== */
 
-h1 {
-  border-bottom: 1px solid var(--color-primary);
+input[type='checkbox'] {
+  accent-color: var(--color-secondary);
 }
-
-
 
 /* ========== Components ========== */
 
+.form__title {
+  border-bottom: 1px solid var(--color-primary);
+}
+
+.form__description {
+  font-size: var(--font-size-small);
+}
+
+.form__label {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-heavy);
+}
+
+.form__input {
+  font-size: var(--font-size-small);
+  display: block;
+  width: 100%;
+  padding: var(--spacing-half);
+}
+
+.form__input::placeholder {
+  color: var(--color-placeholder);
+}
+
 .form__password-reqs {
-  margin-left: var(--padding-1x)
+  font-size: var(--font-size-small);
+  margin-left: var(--spacing-1)
+}
+
+.form__submit-btn {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-heavy);
+  text-transform: uppercase;
+  padding: var(--spacing-half);
+  background-color: var(--color-secondary);
 }
 
 /* ========== Media Queries ========== */
@@ -87,3 +150,6 @@ h1 {
 
 /* desktop */
 @media (min-width: 821px) {}
+
+// Todo
+// add pattern to password
