@@ -100,6 +100,12 @@ img {
 
 /* ========== Elements ========== */
 
+/* Dim and disable submit button while the form is invalid */
+form:invalid button[type="submit"] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 input[type='checkbox'] {
   accent-color: var(--color-secondary);
 }
@@ -153,3 +159,4 @@ input[type='checkbox'] {
 
 // Todo
 // add pattern to password
+// input focus outline colors
