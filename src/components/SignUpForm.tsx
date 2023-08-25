@@ -92,6 +92,7 @@ export const SignUpForm = (props: Props) => {
               id="password"
               value={userInfo.password}
               onChange={handleUserInfoChange}
+              pattern="^(?=(.*[A-Z]){2})(?=(.*\d){2})(?=(.*[\W_]){2}).{12,}$"
               required
             />
             <button
@@ -123,6 +124,7 @@ export const SignUpForm = (props: Props) => {
               id="confirm-password"
               value={userInfo.confirmPassword}
               onChange={handleUserInfoChange}
+              pattern="^(?=(.*[A-Z]){2})(?=(.*\d){2})(?=(.*[\W_]){2}).{12,}$"
               required
             />
             <button
