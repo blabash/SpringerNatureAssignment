@@ -32,12 +32,14 @@ img {
 
 :root {
   --color-primary: rgba(255, 255, 255, 0.87);
-  --color-secondary: oklch(62% 0.3 240); // newer unit that allows for increased contrast against font colors
+  --color-secondary: oklch(
+    62% 0.3 240
+  ); // newer unit that allows for increased contrast against font colors
   --color-teriary: #6b6b6b;
   --color-placeholder: rgba(255, 255, 255, 0.57);
 
-  --spacing-quarter: .25em;
-  --spacing-half: .5em;
+  --spacing-quarter: 0.25em;
+  --spacing-half: 0.5em;
   --spacing-1: 1em;
 
   --font-size-large: 112.5%; // 18px
@@ -50,7 +52,6 @@ img {
   color-scheme: light dark;
   color: var(--color-primary);
   background-color: #242424;
-
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -66,21 +67,11 @@ img {
   align-items: center;
 }
 
-.flex-col {
-  display: flex;
-  flex-direction: column;
-}
-
-.gap-quarter {
-  gap: var(--spacing-quarter);
-}
-
 .gap-half {
   gap: var(--spacing-half);
 }
 
 /* ========== Typography ========== */
-
 
 /* ========== Layout ========== */
 
@@ -94,7 +85,7 @@ img {
   display: grid;
   grid-auto-flow: row;
   gap: var(--spacing-1);
-  width: min(32ch, 100% - 2rem);
+  width: min(42ch, 100% - 2rem);
   padding: var(--spacing-1);
   border: 1px solid var(--color-primary);
 }
@@ -121,10 +112,10 @@ button {
 
 /* Dim and disable submit button while the form is invalid */
 form:invalid button[type="submit"] {
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
-input[type='checkbox'] {
+input[type="checkbox"] {
   accent-color: var(--color-secondary);
 }
 
@@ -143,10 +134,14 @@ input[type='checkbox'] {
   font-weight: var(--font-weight-heavy);
 }
 
+.form__input-row {
+  display: grid;
+  gap: var(--spacing-quarter);
+}
+
 .form__input {
   font-size: var(--font-size-small);
   color: inherit;
-  display: block;
   padding: var(--spacing-half);
   border: 1px solid var(--color-teriary);
 }
@@ -157,7 +152,8 @@ input[type='checkbox'] {
 
 .form__password-reqs {
   font-size: var(--font-size-small);
-  margin-left: var(--spacing-1)
+  margin-inline-start: var(--spacing-1);
+  margin-block-start: var(--spacing-quarter);
 }
 
 .form__submit-btn {
@@ -166,15 +162,31 @@ input[type='checkbox'] {
   text-transform: uppercase;
   padding: var(--spacing-half);
   background-color: var(--color-secondary);
+  border-radius: 0.25rem;
 }
 
 /* ========== Media Queries ========== */
 
 /* tablet */
-@media (min-width: 391px) {}
+@media (min-width: 768px) {
+  .form-container {
+    width: min(74ch, 100% - 2rem);
+  }
+
+  .form__input-row {
+    grid-template-columns: 2fr 3fr;
+  }
+
+  .form__submit-btn {
+    width: fit-content;
+    margin-inline-start: auto;
+    padding: var(--spacing-1);
+  }
+}
 
 /* desktop */
-@media (min-width: 821px) {}
+@media (min-width: 821px) {
+}
 
 // Todo
 // add pattern to password

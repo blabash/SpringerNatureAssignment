@@ -35,7 +35,7 @@ export const SignUpForm = (props: Props) => {
       <h1 className="form__title">Sign up form</h1>
       <em className="form__description">All fields are required.</em>
       <form className="inputs-container" onSubmit={handleSubmit}>
-        <div className="flex-col gap-quarter">
+        <div className="form__input-row">
           <label className="form__label" htmlFor="first-name">
             First name
           </label>
@@ -50,7 +50,7 @@ export const SignUpForm = (props: Props) => {
             required
           />
         </div>
-        <div className="flex-col gap-quarter">
+        <div className="form__input-row">
           <label className="form__label" htmlFor="last-name">
             Last name
           </label>
@@ -65,7 +65,7 @@ export const SignUpForm = (props: Props) => {
             required
           />
         </div>
-        <div className="flex-col gap-quarter">
+        <div className="form__input-row">
           <label className="form__label" htmlFor="email">
             Email address
           </label>
@@ -80,40 +80,42 @@ export const SignUpForm = (props: Props) => {
             required
           />
         </div>
-        <div className="flex-col gap-quarter">
+        <div className="form__input-row">
           <label className="form__label" htmlFor="password">
             Password
           </label>
-          <div className="input-with-btn">
-            <input
-              className="form__input"
-              type={showPassword ? "text" : "password"}
-              name="password"
-              id="password"
-              value={userInfo.password}
-              onChange={handleUserInfoChange}
-              title="Minimum 12 characters. Must contain at least 2 upper case letters, 2 numbers, and 2 symbols."
-              pattern="^(?=(.*[A-Z]){2})(?=(.*\d){2})(?=(.*[\W_]){2}).{12,}$"
-              required
-            />
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setShowPassword((s) => !s);
-              }}
-            >
-              {showPassword ? "Hide" : "Show"}
-            </button>
+          <div>
+            <div className="input-with-btn">
+              <input
+                className="form__input"
+                type={showPassword ? "text" : "password"}
+                name="password"
+                id="password"
+                value={userInfo.password}
+                onChange={handleUserInfoChange}
+                title="Minimum 12 characters. Must contain at least 2 upper case letters, 2 numbers, and 2 symbols."
+                pattern="^(?=(.*[A-Z]){2})(?=(.*\d){2})(?=(.*[\W_]){2}).{12,}$"
+                required
+              />
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setShowPassword((s) => !s);
+                }}
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
+            </div>
+            <ul className="form__password-reqs">
+              <li>Minimum 12 characters</li>
+              <li>
+                Must contain at least 2 upper case letters, 2 numbers, and 2
+                symbols
+              </li>
+            </ul>
           </div>
-          <ul className="form__password-reqs">
-            <li>Minimum 12 characters</li>
-            <li>
-              Must contain at least 2 upper case letters, 2 numbers, and 2
-              symbols
-            </li>
-          </ul>
         </div>
-        <div className="flex-col gap-quarter">
+        <div className="form__input-row">
           <label className="form__label" htmlFor="confirm-password">
             Confirm password
           </label>
@@ -139,7 +141,7 @@ export const SignUpForm = (props: Props) => {
             </button>
           </div>
         </div>
-        <div className="flex-col gap-quarter">
+        <div className="form__input-row">
           <label className="form__label" htmlFor="terms-conditions">
             Terms and conditions
           </label>
