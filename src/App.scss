@@ -38,9 +38,12 @@ img {
   --color-teriary: #6b6b6b;
   --color-placeholder: rgba(255, 255, 255, 0.57);
 
-  --spacing-quarter: 0.25em;
-  --spacing-half: 0.5em;
+  --spacing-1-4: 0.25em;
+  --spacing-1-2: 0.5em;
   --spacing-1: 1em;
+  --spacing-3-2: 1.5em;
+  --spacing-2: 2em;
+  --spacing-3: 3em;
 
   --font-size-large: 112.5%; // 18px
   --font-size-small: 87.5%; // 14px
@@ -50,8 +53,6 @@ img {
   line-height: 1.5;
 
   color-scheme: light dark;
-  color: var(--color-primary);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -68,7 +69,7 @@ img {
 }
 
 .gap-half {
-  gap: var(--spacing-half);
+  gap: var(--spacing-1-2);
 }
 
 /* ========== Typography ========== */
@@ -81,19 +82,22 @@ img {
   place-items: center;
 }
 
-.form-container {
+.form__container {
   display: grid;
-  grid-auto-flow: row;
-  gap: var(--spacing-1);
   width: min(42ch, 100% - 2rem);
-  padding: var(--spacing-1);
   border: 1px solid var(--color-primary);
+}
+
+.form__left-panel {
+  display: grid;
+  padding: var(--spacing-1);
+  gap: var(--spacing-1);
 }
 
 .inputs-container {
   display: grid;
   grid-auto-flow: row;
-  gap: var(--spacing-1);
+  gap: var(--spacing-3-2);
 }
 
 .input-with-btn {
@@ -136,13 +140,13 @@ input[type="checkbox"] {
 
 .form__input-row {
   display: grid;
-  gap: var(--spacing-quarter);
+  gap: var(--spacing-1-4);
 }
 
 .form__input {
   font-size: var(--font-size-small);
   color: inherit;
-  padding: var(--spacing-half);
+  padding: var(--spacing-1-2);
   border: 1px solid var(--color-teriary);
 }
 
@@ -153,14 +157,14 @@ input[type="checkbox"] {
 .form__password-reqs {
   font-size: var(--font-size-small);
   margin-inline-start: var(--spacing-1);
-  margin-block-start: var(--spacing-quarter);
+  margin-block-start: var(--spacing-1-4);
 }
 
 .form__submit-btn {
   font-size: var(--font-size-large);
   font-weight: var(--font-weight-heavy);
   text-transform: uppercase;
-  padding: var(--spacing-half);
+  padding: var(--spacing-1-2);
   background-color: var(--color-secondary);
   border-radius: 0.25rem;
 }
@@ -169,8 +173,12 @@ input[type="checkbox"] {
 
 /* tablet */
 @media (min-width: 768px) {
-  .form-container {
+  .form__container {
     width: min(74ch, 100% - 2rem);
+  }
+
+  .form__left-panel {
+    padding: var(--spacing-3) var(--spacing-2);
   }
 
   .form__input-row {
@@ -185,9 +193,16 @@ input[type="checkbox"] {
 }
 
 /* desktop */
-@media (min-width: 821px) {
+@media (min-width: 1025px) {
+  .form__container {
+    width: min(102ch, 100% - 2rem);
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form__left-panel {
+    border-inline-end: 1px solid var(--color-primary);
+  }
 }
 
 // Todo
-// add pattern to password
-// input focus outline colors
+// handle light dark color scheme variables
