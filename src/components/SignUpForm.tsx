@@ -92,6 +92,7 @@ export const SignUpForm = (props: Props) => {
               id="password"
               value={userInfo.password}
               onChange={handleUserInfoChange}
+              title="Minimum 12 characters. Must contain at least 2 upper case letters, 2 numbers, and 2 symbols."
               pattern="^(?=(.*[A-Z]){2})(?=(.*\d){2})(?=(.*[\W_]){2}).{12,}$"
               required
             />
@@ -124,7 +125,7 @@ export const SignUpForm = (props: Props) => {
               id="confirm-password"
               value={userInfo.confirmPassword}
               onChange={handleUserInfoChange}
-              title="Must match password"
+              title="Must match password."
               pattern={`^${userInfo.password}$`}
               required
             />

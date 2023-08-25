@@ -120,9 +120,9 @@ button {
 }
 
 /* Dim and disable submit button while the form is invalid */
-// form:invalid button[type="submit"] {
-//   opacity: 0.5;
-// }
+form:invalid button[type="submit"] {
+  opacity: 0.7;
+}
 
 input[type='checkbox'] {
   accent-color: var(--color-secondary);
