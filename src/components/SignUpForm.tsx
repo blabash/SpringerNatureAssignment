@@ -87,7 +87,7 @@ export const SignUpForm = (props: Props) => {
           <div className="input-with-btn">
             <input
               className="form__input"
-              type="text"
+              type={showPassword ? "text" : "password"}
               name="password"
               id="password"
               value={userInfo.password}
@@ -119,12 +119,13 @@ export const SignUpForm = (props: Props) => {
           <div className="input-with-btn">
             <input
               className="form__input"
-              type="text"
+              type={showConfirmPassword ? "text" : "password"}
               name="confirmPassword"
               id="confirm-password"
               value={userInfo.confirmPassword}
               onChange={handleUserInfoChange}
-              pattern="^(?=(.*[A-Z]){2})(?=(.*\d){2})(?=(.*[\W_]){2}).{12,}$"
+              title="Must match password"
+              pattern={`^${userInfo.password}$`}
               required
             />
             <button
