@@ -1,4 +1,4 @@
-# React + TypeScript + Vite
+# Springer Nature Front End Candidate Assignment (React + TypeScript + SCSS + Vite)
 
 To get started:
 
