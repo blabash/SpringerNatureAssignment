@@ -32,9 +32,7 @@ img {
 
 :root {
   --color-primary: rgba(255, 255, 255, 0.87);
-  --color-secondary: oklch(
-    62% 0.3 240
-  ); // newer unit that allows for increased contrast against font colors
+  --color-secondary: #7ce319; // newer unit that allows for increased contrast against font colors
   --color-teriary: #6b6b6b;
   --color-placeholder: rgba(255, 255, 255, 0.57);
 
@@ -76,10 +74,6 @@ img {
   display: block;
 }
 
-.visible-desktop {
-  display: none;
-}
-
 .img-container-48 {
   aspect-ratio: 1;
   width: 48px;
@@ -113,8 +107,7 @@ img {
 }
 
 .form__right-panel {
-  display: grid;
-  place-items: center;
+  display: none;
 }
 
 .form__heading-container {
@@ -194,6 +187,14 @@ input[type="checkbox"] {
   border-radius: 0.25rem;
 }
 
+.form__logo-bg-bar {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(45deg, transparent, var(--color-secondary));
+  width: 100%;
+  padding: var(--spacing-1);
+}
+
 /* ========== Media Queries ========== */
 
 /* tablet */
@@ -228,16 +229,20 @@ input[type="checkbox"] {
     border-inline-end: 1px solid var(--color-primary);
   }
 
+  .form__right-panel {
+    display: grid;
+    place-items: center;
+    background: url("src/assets/cool_bg.png");
+    background-position: center;
+    background-size: cover;
+  }
+
   .form__heading-container {
     gap: 0;
   }
 
   .hidden-desktop {
     display: none;
-  }
-
-  .visible-desktop {
-    display: block;
   }
 }
 

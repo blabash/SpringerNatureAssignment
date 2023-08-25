@@ -173,9 +173,14 @@ export const SignUpForm = (props: Props) => {
           </button>
         </form>
       </div>
-      <div className="form__right-panel">
-        <div className="img-container-128 visible-desktop">
-          <img src="src/assets/springer_logo.png" alt="springer nature logo" />
+      <div className="form__right-panel visible-desktop">
+        <div className="form__logo-bg-bar">
+          <div className="img-container-128">
+            <img
+              src="src/assets/springer_logo.png"
+              alt="springer nature logo"
+            />
+          </div>
         </div>
       </div>
     </main>
