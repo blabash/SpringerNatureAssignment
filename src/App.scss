@@ -32,7 +32,7 @@ img {
 
 :root {
   --color-primary: rgba(255, 255, 255, 0.87);
-  --color-secondary: #7ce319; // newer unit that allows for increased contrast against font colors
+  --color-secondary: #112746;
   --color-teriary: #6b6b6b;
   --color-placeholder: rgba(255, 255, 255, 0.57);
 
@@ -141,6 +141,10 @@ form:invalid button[type="submit"] {
   opacity: 0.6;
 }
 
+:is(input, button):where(:focus, :focus-within) {
+  outline: 1px solid var(--color-secondary);
+}
+
 input[type="checkbox"] {
   accent-color: var(--color-secondary);
 }
@@ -190,7 +194,7 @@ input[type="checkbox"] {
 .form__logo-bg-bar {
   display: flex;
   justify-content: center;
-  background: linear-gradient(45deg, transparent, var(--color-secondary));
+  background: linear-gradient(45deg, transparent, lawngreen);
   width: 100%;
   padding: var(--spacing-1);
 }
@@ -245,6 +249,3 @@ input[type="checkbox"] {
     display: none;
   }
 }
-
-// Todo
-// handle light dark color scheme variables
