@@ -33,9 +33,17 @@ export const SignUpForm = (props: Props) => {
   return (
     <main className="form__container">
       <div className="form__left-panel">
-        <h1 className="form__title">Sign up form</h1>
+        <div className="form__heading-container">
+          <h1 className="form__title">Sign up form</h1>
+          <div className="img-container-48 hidden-desktop">
+            <img
+              src="src/assets/springer_logo.png"
+              alt="springer nature logo"
+            />
+          </div>
+        </div>
         <em className="form__description">All fields are required.</em>
-        <form className="inputs-container" onSubmit={handleSubmit}>
+        <form className="form__inputs-container" onSubmit={handleSubmit}>
           <div className="form__input-row">
             <label className="form__label" htmlFor="first-name">
               First name
@@ -165,7 +173,11 @@ export const SignUpForm = (props: Props) => {
           </button>
         </form>
       </div>
-      <div className="form__right-panel"></div>
+      <div className="form__right-panel">
+        <div className="img-container-128 visible-desktop">
+          <img src="src/assets/springer_logo.png" alt="springer nature logo" />
+        </div>
+      </div>
     </main>
   );
 };
