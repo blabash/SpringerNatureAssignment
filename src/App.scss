@@ -113,6 +113,7 @@ img {
 /* ========== Elements ========== */
 
 button {
+  font-family: inherit;
   background-color: var(--color-teriary);
   font-size: var(--font-size-small);
   cursor: pointer;
