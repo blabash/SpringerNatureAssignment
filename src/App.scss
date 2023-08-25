@@ -7,13 +7,6 @@
   box-sizing: border-box;
 }
 
-/* Remove list styles (bullets/numbers) */
-ol,
-ul,
-menu {
-  list-style: none;
-}
-
 /* For images to not be able to exceed their container */
 img {
   max-width: 100%;
@@ -45,7 +38,7 @@ img {
 .app-container {
   min-height: 100vh;
   display: grid;
-  grid-template-rows: auto 1fr;
+  place-items: center;
 }
 
 

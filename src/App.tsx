@@ -1,10 +1,12 @@
 import "./App.scss";
+import { AppContainer } from "./components/AppContainer";
+import { SignUpForm } from "./components/SignUpForm";
 
 function App() {
   return (
-    <>
-      <div>HLLO WRLD</div>
-    </>
+    <AppContainer>
+      <SignUpForm />
+    </AppContainer>
   );
 }
 
