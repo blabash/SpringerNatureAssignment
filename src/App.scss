@@ -33,6 +33,7 @@ img {
 :root {
   --color-primary: rgba(255, 255, 255, 0.87);
   --color-secondary: oklch(62% 0.3 240); // newer unit that allows for increased contrast against font colors
+  --color-teriary: #6b6b6b;
   --color-placeholder: rgba(255, 255, 255, 0.57);
 
   --spacing-quarter: .25em;
@@ -63,13 +64,19 @@ img {
 .flex-row {
   display: flex;
   align-items: center;
-  gap: var(--spacing-half);
 }
 
 .flex-col {
   display: flex;
   flex-direction: column;
+}
+
+.gap-quarter {
   gap: var(--spacing-quarter);
+}
+
+.gap-half {
+  gap: var(--spacing-half);
 }
 
 /* ========== Typography ========== */
@@ -98,13 +105,23 @@ img {
   gap: var(--spacing-1);
 }
 
+.input-with-btn {
+  display: grid;
+  grid-template-columns: 8fr 2fr;
+}
+
 /* ========== Elements ========== */
 
-/* Dim and disable submit button while the form is invalid */
-form:invalid button[type="submit"] {
-  opacity: 0.5;
-  pointer-events: none;
+button {
+  background-color: var(--color-teriary);
+  font-size: var(--font-size-small);
+  cursor: pointer;
 }
+
+/* Dim and disable submit button while the form is invalid */
+// form:invalid button[type="submit"] {
+//   opacity: 0.5;
+// }
 
 input[type='checkbox'] {
   accent-color: var(--color-secondary);
@@ -127,9 +144,10 @@ input[type='checkbox'] {
 
 .form__input {
   font-size: var(--font-size-small);
+  color: inherit;
   display: block;
-  width: 100%;
   padding: var(--spacing-half);
+  border: 1px solid var(--color-teriary);
 }
 
 .form__input::placeholder {

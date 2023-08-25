@@ -27,6 +27,7 @@ export const SignUpForm = (props: Props) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("success");
   };
 
   return (
@@ -34,7 +35,7 @@ export const SignUpForm = (props: Props) => {
       <h1 className="form__title">Sign up form</h1>
       <em className="form__description">All fields are required.</em>
       <form className="inputs-container" onSubmit={handleSubmit}>
-        <div className="flex-col">
+        <div className="flex-col gap-quarter">
           <label className="form__label" htmlFor="first-name">
             First name
           </label>
@@ -49,7 +50,7 @@ export const SignUpForm = (props: Props) => {
             required
           />
         </div>
-        <div className="flex-col">
+        <div className="flex-col gap-quarter">
           <label className="form__label" htmlFor="last-name">
             Last name
           </label>
@@ -64,7 +65,7 @@ export const SignUpForm = (props: Props) => {
             required
           />
         </div>
-        <div className="flex-col">
+        <div className="flex-col gap-quarter">
           <label className="form__label" htmlFor="email">
             Email address
           </label>
@@ -76,32 +77,32 @@ export const SignUpForm = (props: Props) => {
             value={userInfo.emailAddress}
             onChange={handleUserInfoChange}
             placeholder="ex: jane.doe@gmail.com"
-            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
             required
           />
         </div>
-        <div className="flex-col">
+        <div className="flex-col gap-quarter">
           <label className="form__label" htmlFor="password">
             Password
           </label>
-          <input
-            className="form__input"
-            type={showPassword ? "text" : "password"}
-            name="password"
-            id="password"
-            value={userInfo.password}
-            onChange={handleUserInfoChange}
-            pattern=""
-            required
-          />
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              setShowPassword((s) => !s);
-            }}
-          >
-            {showPassword ? "Hide" : "Show"}
-          </button>
+          <div className="input-with-btn">
+            <input
+              className="form__input"
+              type="text"
+              name="password"
+              id="password"
+              value={userInfo.password}
+              onChange={handleUserInfoChange}
+              required
+            />
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                setShowPassword((s) => !s);
+              }}
+            >
+              {showPassword ? "Hide" : "Show"}
+            </button>
+          </div>
           <ul className="form__password-reqs">
             <li>Minimum 12 characters</li>
             <li>
@@ -110,33 +111,35 @@ export const SignUpForm = (props: Props) => {
             </li>
           </ul>
         </div>
-        <div className="flex-col">
+        <div className="flex-col gap-quarter">
           <label className="form__label" htmlFor="confirm-password">
             Confirm password
           </label>
-          <input
-            className="form__input"
-            type={showConfirmPassword ? "text" : "password"}
-            name="confirmPassword"
-            id="confirm-password"
-            value={userInfo.confirmPassword}
-            onChange={handleUserInfoChange}
-            required
-          />
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              setShowConfirmPassword((s) => !s);
-            }}
-          >
-            {showConfirmPassword ? "Hide" : "Show"}
-          </button>
+          <div className="input-with-btn">
+            <input
+              className="form__input"
+              type="text"
+              name="confirmPassword"
+              id="confirm-password"
+              value={userInfo.confirmPassword}
+              onChange={handleUserInfoChange}
+              required
+            />
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                setShowConfirmPassword((s) => !s);
+              }}
+            >
+              {showConfirmPassword ? "Hide" : "Show"}
+            </button>
+          </div>
         </div>
-        <div className="flex-col">
+        <div className="flex-col gap-quarter">
           <label className="form__label" htmlFor="terms-conditions">
             Terms and conditions
           </label>
-          <div className="flex-row">
+          <div className="flex-row gap-half">
             <input
               type="checkbox"
               name="termsAgreed"
