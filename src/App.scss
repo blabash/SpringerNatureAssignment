@@ -142,7 +142,7 @@ form:invalid button[type="submit"] {
 }
 
 :is(input, button):where(:focus, :focus-within) {
-  outline: 1px solid var(--color-secondary);
+  outline: 4px solid var(--color-secondary);
 }
 
 input[type="checkbox"] {
