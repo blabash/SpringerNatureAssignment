@@ -12,6 +12,9 @@ export const SignUpForm = (props: Props) => {
     termsAgreed: false,
   });
 
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   const handleUserInfoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value =
       e.target.type === "checkbox" ? e.target.checked : e.target.value;
@@ -83,7 +86,7 @@ export const SignUpForm = (props: Props) => {
           </label>
           <input
             className="form__input"
-            type="password"
+            type={showPassword ? "text" : "password"}
             name="password"
             id="password"
             value={userInfo.password}
@@ -91,6 +94,14 @@ export const SignUpForm = (props: Props) => {
             pattern=""
             required
           />
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setShowPassword((s) => !s);
+            }}
+          >
+            {showPassword ? "Hide" : "Show"}
+          </button>
           <ul className="form__password-reqs">
             <li>Minimum 12 characters</li>
             <li>
@@ -105,13 +116,21 @@ export const SignUpForm = (props: Props) => {
           </label>
           <input
             className="form__input"
-            type="password"
+            type={showConfirmPassword ? "text" : "password"}
             name="confirmPassword"
             id="confirm-password"
             value={userInfo.confirmPassword}
             onChange={handleUserInfoChange}
             required
           />
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setShowConfirmPassword((s) => !s);
+            }}
+          >
+            {showConfirmPassword ? "Hide" : "Show"}
+          </button>
         </div>
         <div className="flex-col">
           <label className="form__label" htmlFor="terms-conditions">
